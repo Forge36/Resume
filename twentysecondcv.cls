@@ -61,11 +61,9 @@
 
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
-\definecolor{sidecolor}{HTML}{E7E7E7}
-\definecolor{mainblue}{HTML}{0E5484}
-\definecolor{maingray}{HTML}{B9B9B9}
-
-\definecolor{pblue}{HTML}{0395DE}
+\definecolor{sidecolor}{HTML}{801d1d}
+\definecolor{barFront}{HTML}{D0D0D0}
+\definecolor{barBack}{HTML}{470100}
 
 \definecolor{darkgray}{HTML}{333333}
 \definecolor{gray}{HTML}{4D4D4D}
@@ -75,7 +73,8 @@
 \definecolor{purple}{HTML}{D3A4F9}
 \definecolor{red}{HTML}{FB4485}
 \definecolor{blue}{HTML}{6CE0F1}
-\definecolor{pblue}{HTML}{0395DE}
+\definecolor{pblue}{HTML}{001944}
+\definecolor{pbluelight}{HTML}{0075af}
 \definecolor{materialpurple}{HTML}{9C27B0}
 \definecolor{materialindigo}{HTML}{3F51B5}
 \definecolor{materialblue}{HTML}{2196F3}
@@ -89,7 +88,7 @@
 \definecolor{materialorange}{HTML}{FF5722}
 \definecolor{linkedin}{HTML}{0085AE}
 \definecolor{test}{HTML}{0077be}
-\definecolor{yt}{HTML}{c71610}
+\definecolor{yt}{HTML}{ff8a87}
 
 \ifdefined\@cv@print
   \colorlet{green}{gray}
@@ -133,23 +132,23 @@
 \pgfmathsetlength{\imagewidth}{5cm}
 \pgfmathsetlength{\imagescale}{\imagewidth/600}
 
-\newcommand{\profilesection}[2]{\vspace{8pt}{\color{black!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt}}}
+\newcommand{\profilesection}[2]{\vspace{8pt}{\color{white!80} \huge #1 \rule[0.15\baselineskip]{#2}{1pt}}}
 
 % Define custom commands for CV info
 \newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
 \newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
-\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
-\newcommand{\cvsite}[1]{\renewcommand{\cvsite}{#1}}
 \newcommand{\aboutme}[1]{\renewcommand{\aboutme}{#1}}
 \newcommand{\profilepic}[1]{\renewcommand{\profilepic}{#1}}
 \newcommand{\cvname}[1]{\renewcommand{\cvname}{#1}}
 \newcommand{\cvjobtitle}[1]{\renewcommand{\cvjobtitle}{#1}}
 
+\newcommand{\MYhref}[3][blue]{\href{#2}{\color{#1}{#3}}}%
+
 % Command for printing the contact information icons
-\newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=mainblue,mainblue,text=white] (char) {#1};}}
+\newcommand*\icon[1]{\tikz[baseline=(char.base)]{\node[shape=circle,draw,inner sep=1pt, fill=barFront,barFront,text=white] (char) {#1};}}
 
 % Command for printing skill progress bars
 \newcommand\programming[1]{ 
@@ -157,8 +156,8 @@
 		\begin{tikzpicture}
         	\node [above right] at (0, 4) {$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$};
 			\foreach [count=\i] \x/\y in {#1}{
-				\draw[fill=maingray,maingray] (0,\i) rectangle (6,\i+0.4);
-				\draw[fill=white,mainblue](0,\i) rectangle (\y,\i+0.4);
+				\draw[fill=barBack,barBack] (0,\i) rectangle (6,\i+0.4);
+				\draw[fill=white,barFront](0,\i) rectangle (\y,\i+0.4);
 				\node [above right] at (0,\i+0.35) {\x};
 			}
 		\end{tikzpicture}
@@ -170,6 +169,11 @@
 	}
 }
 
+\newcommand\scouting[1]{ 
+	\renewcommand{\scouting}{
+		{#1}
+	}
+}
 %----------------------------------------------------------------------------------------
 %  SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
@@ -192,50 +196,36 @@
 
     %------------------------------------------------
     
-    {\Large\color{black!80}\cvjobtitle}
+    {\Large\color{white!80}\cvjobtitle}
 
     %------------------------------------------------
     
     \vspace{3mm}
     \renewcommand{\arraystretch}{2}
-    \begin{tabular}{p{1cm} @{\hskip 0.5cm}p{5cm}}
+    \begin{tabular}{p{1cm} @{\hskip 0.3cm}p{5cm}}
       \ifthenelse{\equal{\cvnumberphone}{}}{}{
       		{$
               \begin{array}{l}
-              \hspace{4mm} \Huge \textnormal{\faMobile} 
+              \hspace{4mm} \Huge \textnormal{\textcolor{white}{\faMobile}}
               \end{array}
               $} 
-            & \cvnumberphone\\}
+            & \textcolor{white}\cvnumberphone\\}
             
-      \ifthenelse{\equal{\href{\cvsite}{\cvsite}}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{2.8mm} \huge \textnormal{\textcolor{test}{\faGlobe}}
-              \end{array}
-              $} 
-            & \href{http://\cvsite}{\cvsite} \\}
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
               \hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
               \end{array}
               $} 
-            & \href{mailto:\cvmail}{\cvmail} \\}
+            & \MYhref[white]{mailto:\cvmail}{\cvmail} \\}
       
        \ifthenelse{\equal{\cvlinkedin}{}}{}{
             {$
               \begin{array}{l}
               \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
               \end{array}
-              $} & \href{https://www.linkedin.com\cvlinkedin}{\cvlinkedin} \\
+              $} & \MYhref[white]{https://www.linkedin.com\cvlinkedin}{\cvlinkedin} \\
             }  
-        \ifthenelse{\equal{\cvgithub}{}}{}{
-            {$
-              \begin{array}{l}
-              \hspace{3mm} \huge \textnormal{\faGithub}
-              \end{array}
-              $} & \href{https://www.github.com/\cvgithub}{\cvgithub} \\
-            }   
             
     \end{tabular}
 
@@ -243,7 +233,7 @@
     \vspace{3mm}
     \profilesection{Technical Skills}{1.2cm}
     
-    {\large \textbf{Overview}}
+    {\large \textcolor{white}{\textbf{Overview}}}
 
 	\skills
         
@@ -260,6 +250,9 @@
         
         \education
       
+        \profilesection{Scouting}{3cm} 
+        
+        \scouting
   \end{textblock}
 }
 
@@ -275,7 +268,7 @@
 
 \def\@sectioncolor#1#2#3{%
 	{%
-		\color{pblue} #1#2#3%
+		\color{pbluelight} #1#2#3%
 	}%
 }
 
