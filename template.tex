@@ -19,30 +19,32 @@
 \documentclass[letterpaper]{twentysecondcv} % a4paper for A4
 
 % Command for printing skill overview bubbles
-\newcommand\skills{ 
-~
-	\smartdiagram[bubble diagram]{
-        \textbf{Data}\\\textbf{Engineering},
-        \textbf{Full Stack}\\\textbf{Dev},
-        \textbf{~~~~~~~~OOP~~~~~~~~~},
-        \textbf{~~~~~~Machine~~~~~~}\\\textbf{~~Learning~~},
-        \textbf{~~~~~DevOps~~~~~}
-    }
+\newcommand\skills{
+\hyphenpenalty=10000
+\textcolor{white}
+{I enjoy working on frameworks helping others develop new features faster.
+Developing tools to reduce mistakes highlighting complications earlier.
+}
 }
 
 % Programming skill bars
-\programming{{C $\textbullet$ C++  $\textbullet$ R / 3}, {JavaScript $\textbullet$ SQL $\textbullet$ \large \LaTeX / 3.5}, {Scala $\textbullet$ Java $\textbullet$ Python / 5}}
+\programming{{\LaTeX / .5}, {Java $\textbullet$ C / 2}, {JavaScript $\textbullet$ M / 4}, {C\# $\textbullet$ VB6 / 5.5}}
 
 % Projects text
 \education{
 \textcolor{white}{\textbf{BS., Computer Science}  \\
 Specialization: Security \\
-University of Wisconsin - Madison \\
+\href{https://www.wisc.edu/}{University of Wisconsin - Madison} \\
 2009 - 2012 | Madison, Wisconsin}
 }
 
 \scouting{
 \textcolor{white}{\textbf{Eagle Scout} - Silver Palm 
+}
+}
+
+\langauge{
+\textcolor{white}{\textbf{German} - conversational
 }
 }
 
@@ -56,10 +58,10 @@ University of Wisconsin - Madison \\
 \cvjobtitle{ Software Developer } % Job
 % title/career
 
-\cvlinkedin{/in/gregory-mason-64539933}
-\cvnumberphone{(612) 208 6552} % Phone number
+\cvlinkedin{/in/gregorymason366}
+\cvnumberphone{(612)-208-6552} % Phone number
 \cvmail{gregory.mason.366@gmail.com} % Email address
-
+\cvgithub{Forge36} %github
 %----------------------------------------------------------------------------------------
 
 \begin{document}
@@ -78,87 +80,76 @@ University of Wisconsin - Madison \\
 		{Present}
         {Software Developer}
         {\href{https://www.epic.com/}{Epic}}
-        {}
+        {Core Application - Reports}
         {\begin{itemize}
-%        		TODO
-MORE HERE
-%TODO
-        \item Focused on developing machine learning models, production deployment,  unit testing, scaling and performance tuning
-        \item Projects: SMS spam detection, Robocall detection 
-        
-        Tools: Kafka, Flume, Spark, Hive, Solr, Jupyter Lab, Kubernetes, Docker
-        
-        Awards: Merit Gold (2x), Merit Platinum
-        \item Presented several talks on Machine Learning and Big Data at university hackathons and Bell internal conferences
-        \item Conducted interviews for junior, and senior, data engineering roles
+   		\item Extension framework to allow for loosely coupled, interactive reporting content.
+   		
+   		\item Performance improvements in VB reducing, login time by 500ms, component initialization by 80\% (~400ms). Web viewer by 300ms per report by optimizing DOM interactions
+   		
+   		\item Team issue triage for priority, security, and task assignment. Project planning and cross team coordination
+   		
+   		\item Wrote a VB6 Parsing engine to assist in locating, security vulnerabilities, dead code paths, and unused translations within the software
         \end{itemize}}
         \\
 	\twentyitem
-    	{Sep 2015 -}
-		{May 2016}
-        {Co-founder \& Full Stack Developer}
-        {\href{http://www.localxchange.ca/}{LocalXChange Inc.}}
+		{May 2011 -}
+		{Dec 2011}
+        {Software Engineer Intern}
+        {\href{http://www.mavericksoftware.com/}{Maverick Software Consulting}}
         {}
         {
         {\begin{itemize}
-        \item In a team of 2, raised \$8,000 in funding from The Hub incubator at the University of Guelph, to develop a hyperlocal content platform, aimed at delivering local news and events to local users in realtime
-        \item In a team of 3, built hybrid mobile \& web apps with Ionic, Angular.js and MongoDB, surpassing 1,000 users within a month since launch
-        \item Met with the Mayor of Guelph and University of Guelph officials to discuss how the app can help boost Guelph Tourism 
+        \item UI automation testing with Ranorex, framework designed for compatibility with Selenium. Converted existing Java tests to C\# using the new framework
+        \item Improved suite of tests improving full regression testing by 300\%
+        
+        \item Developed a testing framework to allow distributed execution of tests within the testing suite
+        
     \end{itemize}}
         }
     \\   
     \twentyitem
-   		{Sep 2015 -}
-		{Dec 2016}
-        {Graduate Teaching Assistant}
-        {\href{http://www.uoguelph.ca}{University of Guelph}}
+   		{Sept 2010 -}
+		{May 2011}
+        {Technology Support Specialist}
+        {\href{https://wsb.wisc.edu/}{Wisconsin School of Business}}
         {}
         {
         {\begin{itemize}
-        \item TA for CIS*2430 (OOP), CIS*4150 (Software Reliability \& Testing) and CIS*3530 (Database Systems \& Concepts) courses
-        \item Delivered several lectures for CIS*3530 when professor was away at a conference
+		\item Customer Service and one on one support with Faculty and Staff
+		\item Use of Altiris for managing system images , motoring to manage rolling updates
+		\item Improved rollout process to avoid downtime
+		\item Hardware and software troubleshooting end user devices
     \end{itemize}}
         }
      \\
      \twentyitem
-   		{Dec 2013 -}
-		{Apr 2015}
-        {Test Automation Engineer}
-        {\href{http://www.synechron.com/}{Synechron}}
+	    {May 2010 -}
+	    {Sept 2010}
+	   	{Technology Intern}
+        {\href{https://www.thomsonreuters.com}{Thomson Reuters}}
         {}
         {
         \begin{itemize}
-        \item Primarily developed test automation libraries using Java and C\#, scripts and CI / CD pipelines
-        \item Lead development of a Keyword Driven \& Behavior Driven test framework for \href{https://www.microsoft.com/en-ca/dynamics/crm.aspx}{Microsoft Dynamics CRM}. Earned monetary award \& client appreciation.
-        \item Demonstrated that rewriting an in-house test framework for \href{https://www.microsoft.com/en-ca/dynamics/erp-ax-overview.aspx}{Microsoft Dynamics AX}, using an open source library (White) instead of a proprietary one (Coded UI), would help the team save \$4K annually by downgrading Microsoft Visual Studio
+        \item created a restful web server in Java to display incident management data in a calendar by team 
+        \item Used iBATIS to map the SQL to Java objects
+        
     \end{itemize}
     	}
-        
+    \\
+    \twentyitem
+	   {June 2009 -}
+	   {Sept 2009}
+       {Technology Intern}
+       {\href{https://www.thomsonreuters.com}{Thomson Reuters}}
+       {West Tech Operations—Capacity Management}
+       {
+       	\begin{itemize}
+       		\item Improve turnaround allowing for on demand display of server load reporting by replacing manual tasks and increasing amount of data which could be displayed
+       		\item Creating Database Storage  Forecast tools for capacity management forecasting allowing a quarterly update forecast report to be run in 15 minutes vs 40 hours
+       		
+       	\end{itemize}
+       } 
 	%\twentyitem{<dates>}{<title>}{<location>}{<description>}
 \end{twenty}
-
-%----------------------------------------------------------------------------------------
-%	 RESEARCH
-%----------------------------------------------------------------------------------------
-\section{Research}
-\begin{twenty}
-	\twentyitem
-    	{2015 - 2017}
-		{}
-        {MSc. Candidate, Graduate Research Assistant}
-        {\href{http://www.uoguelph.ca/}{University of Guelph}}
-        {}
-        {
-       	\textbf{Thesis}: Data Integration from Multiple Historical Sources to Study Canadian Casualties of WWI
-        {\begin{itemize}
-        \item Proposed a stepwise deterministic method to integrate datasets without labeled data. The method performs comparably with a method that incorporates a Support Vector Machine
-        \item Prepared a longitudinal dataset to enable comprehensive analyses about WWI Canadian society and military, seeding further research
-        \item \textbf{Tools}: R, Python, scikit-learn, pandas \vspace{2mm}
-		\end{itemize}}
-        }
-\end{twenty}
-
-\section{Publications}
-L. Antonie, H. Gadgil, G. Grewal, and K. Inwood, “Historical Data Integration - A Study of WWI Canadian Soldiers,” in 2016 IEEE 16th International Conference on Data Mining Workshops (ICDMW), pp. 186-193, IEEE, 2016. \vspace{2mm}
 
 \end{document} 

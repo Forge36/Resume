@@ -9,7 +9,7 @@
 \RequirePackage[quiet]{fontspec}
 \RequirePackage[sfdefault]{ClearSans}
 
-\def\arrow#1{\pspicture[shift=2pt](#1,0)\psline{->}(#1,0)\endpspicture}
+\def\arrow#1{\textcolor{white}{\pspicture[shift=2pt,linecolor=white](#1,0)\psline{->}(#1,0)\endpspicture}}
 
 \usepackage{pstricks}
 
@@ -61,8 +61,8 @@
 
 \definecolor{white}{RGB}{255,255,255}
 \definecolor{gray}{HTML}{4D4D4D}
-\definecolor{sidecolor}{HTML}{801d1d}
-\definecolor{barFront}{HTML}{D0D0D0}
+\definecolor{sidecolor}{HTML}{c61d1d}
+\definecolor{barFront}{HTML}{E0E0E0}
 \definecolor{barBack}{HTML}{470100}
 
 \definecolor{darkgray}{HTML}{333333}
@@ -137,6 +137,7 @@
 % Define custom commands for CV info
 \newcommand{\cvdate}[1]{\renewcommand{\cvdate}{#1}}
 \newcommand{\cvlinkedin}[1]{\renewcommand{\cvlinkedin}{#1}}
+\newcommand{\cvgithub}[1]{\renewcommand{\cvgithub}{#1}}
 \newcommand{\cvmail}[1]{\renewcommand{\cvmail}{#1}}
 \newcommand{\cvnumberphone}[1]{\renewcommand{\cvnumberphone}{#1}}
 \newcommand{\cvaddress}[1]{\renewcommand{\cvaddress}{#1}}
@@ -154,11 +155,11 @@
 \newcommand\programming[1]{ 
 	\renewcommand{\programming}{
 		\begin{tikzpicture}
-        	\node [above right] at (0, 4) {$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$};
+        	\node [above right] at (0, 5) {\textcolor{white}{$0 \: LOC \: \arrow{3.2} \: 5000 \: LOC$}};
 			\foreach [count=\i] \x/\y in {#1}{
 				\draw[fill=barBack,barBack] (0,\i) rectangle (6,\i+0.4);
 				\draw[fill=white,barFront](0,\i) rectangle (\y,\i+0.4);
-				\node [above right] at (0,\i+0.35) {\x};
+				\node [above right] at (0,\i+0.35) {\textcolor{white}{\x}};
 			}
 		\end{tikzpicture}
 	}
@@ -174,6 +175,11 @@
 		{#1}
 	}
 }
+\newcommand\langauge[1]{ 
+	\renewcommand{\langauge}{
+		{#1}
+	}
+}
 %----------------------------------------------------------------------------------------
 %  SIDEBAR LAYOUT
 %----------------------------------------------------------------------------------------
@@ -185,12 +191,12 @@
 
   %------------------------------------------------
 
-  \begin{textblock}{6}(0.5, 0.2)
+  \begin{textblock}{5.3}(0.5, 0.2)
 
     %------------------------------------------------
     
         \vspace{4mm}
-    {\Huge\color{pblue}\cvname}
+    {\Huge\color{white}\cvname}
     
     \vspace{2mm}
 
@@ -202,19 +208,19 @@
     
     \vspace{3mm}
     \renewcommand{\arraystretch}{2}
-    \begin{tabular}{p{1cm} @{\hskip 0.3cm}p{5cm}}
+    \begin{tabular}{p{1cm} @{\hskip 0cm}p{5cm}}
       \ifthenelse{\equal{\cvnumberphone}{}}{}{
       		{$
               \begin{array}{l}
-              \hspace{4mm} \Huge \textnormal{\textcolor{white}{\faMobile}}
+              \hspace{1.5mm} \Huge \textnormal{\textcolor{white}{\faMobile}}
               \end{array}
               $} 
-            & \textcolor{white}\cvnumberphone\\}
+            & \MYhref[white]{tel:\cvnumberphone}{\cvnumberphone}\\}
             
       \ifthenelse{\equal{\cvmail}{}}{}{
             {$
               \begin{array}{l}
-              \hspace{2.5mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
+              \hspace{0mm} \huge \textnormal{\textcolor{yt}{\faEnvelopeO}}
               \end{array}
               $} 
             & \MYhref[white]{mailto:\cvmail}{\cvmail} \\}
@@ -222,37 +228,46 @@
        \ifthenelse{\equal{\cvlinkedin}{}}{}{
             {$
               \begin{array}{l}
-              \hspace{3mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
+              \hspace{0.5mm} \huge \textnormal{\textcolor{linkedin}{\faLinkedin}}
               \end{array}
               $} & \MYhref[white]{https://www.linkedin.com\cvlinkedin}{\cvlinkedin} \\
             }  
-            
+        \ifthenelse{\equal{\cvgithub}{}}{}{
+            {$
+              \begin{array}{l}
+              \hspace{0.5mm} \huge \textnormal{\textcolor{white}{\faGithub}}
+              \end{array}
+              $} & \MYhref[white]{https://www.github.com/\cvgithub}{\cvgithub} \\
+            }   
     \end{tabular}
 
     %------------------------------------------------
     \vspace{3mm}
-    \profilesection{Technical Skills}{1.2cm}
+    \profilesection{Overview}{3cm}
     
-    {\large \textcolor{white}{\textbf{Overview}}}
-
 	\skills
         
         %------------------------------------------------
         
         \vspace{3mm}
        
-	 {\large \textbf{Programming}} 
+	 {\large\textcolor{white}{\textbf{Programming}}}
 
 		 \programming
          
         \vspace{3mm}
-        \profilesection{Education}{3cm} 
+        \profilesection{Education}{2.6cm} 
         
         \education
       
         \profilesection{Scouting}{3cm} 
         
         \scouting
+		
+		\profilesection{Langauge}{2.7cm} 
+        
+        \langauge
+		
   \end{textblock}
 }
 
@@ -350,27 +365,3 @@
 %----------------------------------------------------------------------------------------
 
 \RequirePackage[left=7.6cm,top=0.1cm,right=1cm,bottom=0.1cm,nohead,nofoot]{geometry}
-
-
-\usepackage{smartdiagram}
-\smartdiagramset{
-    bubble center node font = \footnotesize,
-    bubble node font = \footnotesize,
-    % specifies the minimum size of the bubble center node
-    bubble center node size = 0.5cm,
-    %  specifies the minimum size of the bubbles
-    bubble node size = 0.5cm,
-    % specifies which is the distance among the bubble center node and the other bubbles
-    distance center/other bubbles = 0.3cm,
-    % sets the distance from the text to the border of the bubble center node
-    distance text center bubble = 0.5cm,
-    % set center bubble color
-    bubble center node color = pblue,
-    % define the list of colors usable in the diagram
-    set color list = {lightgray, materialcyan, orange, green, materialorange, materialteal, materialamber, materialindigo, materialgreen, materiallime},
-    % sets the opacity at which the bubbles are shown
-    bubble fill opacity = 0.6,
-    % sets the opacity at which the bubble text is shown
-    bubble text opacity = 1,
-}
-
