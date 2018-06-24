@@ -331,12 +331,12 @@
 
 \newcommand{\twentyitem}[6]{%
 	#1&\parbox[t]{0.83\textwidth}{%
-		\textbf{#3}% 
+		\textbf{\raggedright #3}% 
 		\hfill%
 		{\footnotesize#4}%
         }\\%
     #2&\parbox[t]{0.83\textwidth}{%
-		\ifblank{#5}{}{#5 \\}
+		\ifblank{#5}{}{\raggedright #5 \\}
 		#6%
 	}\\
 }
