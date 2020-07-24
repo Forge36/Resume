@@ -155,7 +155,7 @@
 \newcommand\programming[1]{ 
 	\renewcommand{\programming}{
 		\begin{tikzpicture}
-        	\node [above right] at (0, 5) {\textcolor{white}{$0 \: EXP \: \arrow{3.6} \: 6 \: EXP$}};
+        	\node [above right] at (0, 5) {\textcolor{white}{$0 \: EXP \: \arrow{3.6} \: 8 \: EXP$}};
 			\foreach [count=\i] \x/\y in {#1}{
 				\draw[fill=barBack,barBack] (0,\i) rectangle (6,\i+0.4);
 				\draw[fill=white,barFront](0,\i) rectangle (\y,\i+0.4);
